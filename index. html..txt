@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    Dental Prev | Unidade Benfica
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #183b56;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* MENU */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: white;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #087f8c;
+        }
+
+        .logo span {
+            color: #183b56;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #183b56;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #087f8c;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(5, 73, 88, 0.72), rgba(5, 73, 88, 0.72)),
+                url("https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            color: white;
+            padding: 120px 25px 70px;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            max-width: 700px;
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 27px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button-primary {
+            background: #16b5a4;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #0e9285;
+            transform: translateY(-2px);
+        }
+
+        .button-light {
+            background: white;
+            color: #087f8c;
+            margin-left: 10px;
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #183b56;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #687b88;
+        }
+
+        /* SOBRE */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #5e707d;
+            margin-bottom: 15px;
+        }
+
+        /* SERVIÇOS */
+        .services {
+            background: #f4fbfa;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #71808a;
+            font-size: 14px;
+        }
+
+        /* CONSULTA GRÁTIS */
+        .free-consultation {
+            background: linear-gradient(135deg, #087f8c, #16b5a4);
+            color: white;
+            text-align: center;
+        }
+
+        .free-consultation h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .free-consultation p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+
+        /* BENEFÍCIOS */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .benefit {
+            padding: 30px;
+            border: 1px solid #e5eeee;
+            border-radius: 15px;
+        }
+
+        .benefit h3 {
+            margin-bottom: 10px;
+        }
+
+        /* CONTACTOS */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-box {
+            background: #f4fbfa;
+            padding: 35px;
+            border-radius: 18px;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        .contact-item {
+            margin: 15px 0;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #087f8c;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #123448;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 29px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+            z-index: 999;
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            nav {
+                padding: 14px 15px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .button {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 18px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<header>
+    <nav>
+        <div class="logo">
+            Dental <span>Prev</span>
+        </div>
+
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#beneficios">Por que nós</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- INÍCIO -->
+<section class="hero" id="inicio">
+    <div class="hero-content">
+
+        <h1>
+            O seu sorriso merece o melhor cuidado.
+        </h1>
+
+        <p>
+            Na Dental Prev cuidamos da sua saúde oral
+            com profissionalismo, conforto e dedicação.
+        </p>
+
+        <a href="#contactos" class="button button-primary">
+            Marcar consulta
+        </a>
+
+        <a href="#servicos" class="button button-light">
+            Conhecer serviços
+        </a>
+
+    </div>
+</section>
+
+
+<!-- SOBRE -->
+<section id="sobre">
+
+    <div class="container about">
+
+        <div>
+            <img
+                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"
+                alt="Clínica odontológica">
+        </div>
+
+        <div>
+            <h2>Sobre a Dental Prev</h2>
+
+            <p>
+                A Dental Prev é uma clínica dedicada à saúde
+                oral e ao cuidado do sorriso dos nossos pacientes.
+            </p>
+
+            <p>
+                A nossa equipa trabalha para proporcionar
+                um atendimento humanizado, profissional e
+                adequado às necessidades de cada paciente.
+            </p>
+
+            <p>
+                Estamos preparados para acompanhar
+                diferentes necessidades odontológicas,
+                desde a prevenção até aos tratamentos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVIÇOS -->
+<section class="services" id="servicos">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Os nossos serviços</h2>
+            <p>Cuidados completos para a saúde do seu sorriso.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🦷</div>
+                <h3>Consulta</h3>
+                <p>
+                    Avaliação da saúde oral e orientação
+                    para o tratamento adequado.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">✨</div>
+                <h3>Limpeza dentária</h3>
+                <p>
+                    Cuidados de higiene oral para ajudar
+                    a manter os dentes saudáveis.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">😁</div>
+                <h3>Ortodontia</h3>
+                <p>
+                    Cuidados destinados ao alinhamento
+                    e correção da posição dos dentes.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🪥</div>
+                <h3>Restauração</h3>
+                <p>
+                    Tratamentos destinados à recuperação
+                    da estrutura dos dentes.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💎</div>
+                <h3>Clareamento</h3>
+                <p>
+                    Procedimentos para melhorar a aparência
+                    e luminosidade do sorriso.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🦷</div>
+                <h3>Prótese dentária</h3>
+                <p>
+                    Soluções para substituir dentes
+                    ausentes e recuperar a função oral.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">👨‍⚕️</div>
+                <h3>Extração</h3>
+                <p>
+                    Procedimentos realizados mediante
+                    avaliação profissional.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">❤️</div>
+                <h3>Prevenção</h3>
+                <p>
+                    Orientação e cuidados para preservar
+                    a saúde da boca e dos dentes.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONSULTA GRÁTIS -->
+<section class="free-consultation">
+
+    <div class="container">
+
+        <h2>Primeira consulta grátis</h2>
+
+        <p>
+            Quer saber qual é o melhor tratamento para o seu sorriso?
+            Marque a sua primeira consulta e faça uma avaliação
+            com um dos nossos profissionais.
+        </p>
+
+        <a href="#contactos" class="button button-light">
+            Quero marcar consulta
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- BENEFÍCIOS -->
+<section id="beneficios">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Por que escolher a Dental Prev?</h2>
+            <p>O paciente está no centro do nosso atendimento.</p>
+        </div>
+
+        <div class="benefits">
+
+            <div class="benefit">
+                <h3>👨‍⚕️ Atendimento profissional</h3>
+                <p>
+                    Cada paciente é avaliado individualmente
+                    para identificar as suas necessidades.
+                </p>
+            </div>
+
+            <div class="benefit">
+                <h3>❤️ Atendimento humanizado</h3>
+                <p>
+                    Procuramos proporcionar um ambiente
+                    confortável e acolhedor.
+                </p>
+            </div>
+
+            <div class="benefit">
+                <h3>🦷 Cuidado completo</h3>
+                <p>
+                    Trabalhamos com diferentes áreas
+                    de cuidados odontológicos.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTOS -->
+<section id="contactos">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Entre em contacto</h2>
+            <p>Estamos prontos para atender você.</p>
+        </div>
+
+        <div class="contact">
+
+            <div class="contact-box">
+
+                <h3>Dental Prev – Unidade Benfica</h3>
+
+                <div class="contact-item">
+                    <strong>📍 Localização</strong>
+                    Benfica, Luanda, Angola
+                </div>
+
+                <div class="contact-item">
+                    <strong>📞 Telefone</strong>
+                    +244 925767544
+                </div>
+
+                <div class="contact-item">
+                    <strong>📱 WhatsApp</strong>
+                    +244 925767544
+                </div>
+
+                <div class="contact-item">
+                    <strong>🕐 Horário</strong>
+                    Segunda a Sexta-feira
+                    <br>
+                    08:00 – 17:00
+                </div>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <h3>Agende a sua consulta</h3>
+
+                <p>
+                    Para marcar uma consulta, entre em contacto
+                    conosco através do WhatsApp ou telefone.
+                </p>
+
+                <br>
+
+                <!-- ALTERE O NÚMERO ABAIXO -->
+                <a
+                    href="https://wa.me/244925767544"
+                    target="_blank"
+                    class="button button-primary">
+                    💬 Falar pelo WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p><strong>Dental Prev</strong></p>
+
+    <p>
+        Unidade Benfica – Luanda, Angola
+    </p>
+
+    <p>
+        © 2026 Dental Prev. Todos os direitos reservados.
+    </p>
+
+</footer>
+
+
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a
+    href="https://wa.me/244925767544"
+    target="_blank"
+    class="whatsapp"
+    title="Falar no WhatsApp">
+    💬
+</a>
+
+</body>
+</html>
